@@ -57,7 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Player\Scripts\PlayerCtrl.cs" />
-    <Compile Include="Assets\Player\Scripts\CamCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
