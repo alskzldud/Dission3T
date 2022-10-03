@@ -25,9 +25,12 @@ public class PlayerCtrl : MonoBehaviour
         transform.Translate(dir * len); //dir 방향으로 len 만큼 이동
 
         float rotX = Input.GetAxis("Mouse X"); //마우스 수평 이동
+        //float rotY = Input.GetAxis("Mouse Y"); 
 
         float degX = rotX * RSpeed * Time.deltaTime; //회전 각도
+       // float degY = rotY * RSpeed * Time.deltaTime;
         transform.Rotate(0, degX, 0); //x축 기준으로 degY만큼 y축 기준으로 degX만큼 회전
+        
 
         
     }
