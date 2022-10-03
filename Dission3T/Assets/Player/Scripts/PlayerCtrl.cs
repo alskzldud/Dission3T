@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public float speed = 100;
+    Vector3 dir; //이동 방향
+    public float MSpeed = 5; //이동 속도
+    public float RSpeed = 1000; //회전 속도
 
     void Start()
     {
@@ -13,26 +15,20 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
+        dir.x = Input.GetAxis("Horizontal"); //수평 방향키 입력
+        dir.z = Input.GetAxis("Vertical"); //수직 방향키 입력
+        //이동 속도 조절
+        if (dir.magnitude > 1)
+            dir.Normalize();
+
+        float len = MSpeed * Time.deltaTime; //이동 거리 계산
+        transform.Translate(dir * len); //dir 방향으로 len 만큼 이동
+
         float rotX = Input.GetAxis("Mouse X"); //마우스 수평 이동
 
-        float degX = rotX * speed * Time.deltaTime; //회전 각도
+        float degX = rotX * RSpeed * Time.deltaTime; //회전 각도
         transform.Rotate(0, degX, 0); //x축 기준으로 degY만큼 y축 기준으로 degX만큼 회전
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += new Vector3(0.0f, 0.0f, 0.1f);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= new Vector3(0.0f, 0.0f, 0.1f);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= new Vector3(0.1f, 0.0f, 0.0f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += new Vector3(0.1f, 0.0f, 0.0f);
-        }
+        
     }
 }
