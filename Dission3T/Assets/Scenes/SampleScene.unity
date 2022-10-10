@@ -1172,6 +1172,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4993532451368290338, guid: 9f4144f704fd2ae44bd6ac8f00086196, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5048910b4abb9a04099546218ab6038a, type: 2}
     - target: {fileID: -4726903468118602462, guid: 9f4144f704fd2ae44bd6ac8f00086196, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1184,6 +1188,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5048910b4abb9a04099546218ab6038a, type: 2}
+    - target: {fileID: -516003045114261436, guid: 9f4144f704fd2ae44bd6ac8f00086196, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f142a058b6884604690a22fc5015d546, type: 2}
     - target: {fileID: -102804240923620699, guid: 9f4144f704fd2ae44bd6ac8f00086196, type: 3}
       propertyPath: m_Name
       value: "\uC74C\uB8CC_L"
@@ -1196,6 +1204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: market_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2389317899385210160, guid: 9f4144f704fd2ae44bd6ac8f00086196, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5048910b4abb9a04099546218ab6038a, type: 2}
     - target: {fileID: 2489159159464621496, guid: 9f4144f704fd2ae44bd6ac8f00086196, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.99
