@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float moveSpeed = 7f;
+    public float rotateSpeed = 20f;
     CharacterController cc;
     float gravity = -20f;
     float yVelocity = 0;
@@ -25,7 +26,7 @@ public class PlayerMove : MonoBehaviour
 
         dir = Camera.main.transform.TransformDirection(dir);
 
-        transform.position += dir * moveSpeed * Time.deltaTime; //이동 속도에 맞춰 이동
+        //transform.position += dir * rotateSpeed * Time.deltaTime; //이동 속도에 맞춰 이동
 
         //중력값 적용
         yVelocity += gravity * Time.deltaTime;
