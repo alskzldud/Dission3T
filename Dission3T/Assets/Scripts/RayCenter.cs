@@ -80,11 +80,8 @@ public class RayCenter : MonoBehaviour
                 {
                     Debug.Log("작동 중(성공)");
                     hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
-                    
-                }
-                else if(hit.collider.tag == "서랍")
-                {
-                    Debug.Log("서랍과 충돌 중");
+                    hand.transform.Rotate(Vector3.up * 20 * Time.deltaTime);
+
                 }
                 else
                 {
