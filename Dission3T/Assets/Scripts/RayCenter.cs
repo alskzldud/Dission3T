@@ -10,12 +10,13 @@ public class RayCenter : MonoBehaviour
 
     bool eDown;
 
-    public GameObject hand;
+    GameObject hand1;
+    GameObject hand2;
     
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // 마우스 커서를 정중앙에 고정
+        Cursor.lockState = CursorLockMode.Locked; // fasten cursur on center
         center = GameObject.Find("Center");
         ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
 
@@ -32,7 +33,7 @@ public class RayCenter : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Input.GetMouseButtonDown(0)) //탐색, 및 수색 (추후 코드정리 필요)
+        if (Input.GetMouseButtonDown(0)) // searching with click
         {
             
 
@@ -51,10 +52,6 @@ public class RayCenter : MonoBehaviour
                         hit.collider.gameObject.transform.Translate(0, 0, -0.7f);
                 }
 
-                if (hit.collider.tag == "온도조절기")
-                {
-                    Debug.Log("온도조절기와 충돌 중");
-                }
             }
 
             
@@ -69,19 +66,31 @@ public class RayCenter : MonoBehaviour
 
         if (eDown) //상호작용
         {
-
+            //hand.transform.Rotate(Vector3.up * 20 * Time.deltaTime);
             Debug.Log("eDown = true");
 
            
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit)) // Ray bumped with object
             {
                 Debug.Log("충돌 중");
-                if(hit.collider.tag == "온도조절기")
+                if(hit.collider.tag == "온도조절기")//
                 {
-                    Debug.Log("작동 중(성공)");
-                    hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
-                    hand.transform.Rotate(Vector3.up * 20 * Time.deltaTime);
+                    Debug.Log("온도조절기와 충돌 중");
 
+                    if (hit.collider.transform.position.x > -0.183) // is Right thermometer?
+                    {
+                        Debug.Log("오른쪽 온도조절기와 충돌 중");
+                        hand1 = GameObject.FindWithTag("hand1");
+                        hand1.transform.Rotate(-Vector3.back * 30 * Time.deltaTime);
+                        hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+                        
+                    }
+                    else if(hit.collider.transform.position.x < -0.183) // is Left thermometer?
+                    {
+                        hand2 = GameObject.FindWithTag("hand2");
+                        hand2.transform.Rotate(-Vector3.back * 30 * Time.deltaTime);
+                        hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
+                    }
                 }
                 else
                 {

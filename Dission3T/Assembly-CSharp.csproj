@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\CamRotate.cs" />
     <Compile Include="Assets\Scripts\RayCenter.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\thermometerhandscript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
