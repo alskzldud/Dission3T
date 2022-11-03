@@ -6,10 +6,11 @@ TagManager:
   tags:
   - "\uC11C\uB78D"
   - Center
-  - "\uC628\uB3C4\uC870\uC808\uAE30"
   - hand1
   - hand2
   - "\uC628\uB3C4\uACC4"
+  - "\uC628\uB3C4\uC870\uC808\uAE301"
+  - "\uC628\uB3C4\uC870\uC808\uAE302"
   layers:
   - Default
   - TransparentFX
