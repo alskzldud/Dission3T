@@ -32,11 +32,11 @@ public class thermometerhandscript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "온도조절기" && other.transform.position.x == -0.07231)
+        if (other.tag == "온도계" && other.transform.position.x == -0.07231)
         {
             L_true = false;
         }
-        else if (other.tag == "온도조절기" && other.transform.position.x == 06869435)
+        else if (other.tag == "온도계" && other.transform.position.x == 06869435)
         {
             R_true = false;
         }
