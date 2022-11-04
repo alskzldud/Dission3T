@@ -11,6 +11,7 @@ TagManager:
   - "\uC628\uB3C4\uACC4"
   - "\uC628\uB3C4\uC870\uC808\uAE301"
   - "\uC628\uB3C4\uC870\uC808\uAE302"
+  - Roomdoor
   layers:
   - Default
   - TransparentFX
