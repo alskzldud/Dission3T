@@ -11,10 +11,8 @@ public class RayCenter : MonoBehaviour
     GameObject hand1;
     GameObject hand2;
     
-
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // fasten cursur on center
         center = GameObject.Find("Center");
         ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
     }
@@ -77,6 +75,11 @@ public class RayCenter : MonoBehaviour
                 Debug.Log("충돌안함");
             }
         }
+    }
+
+    public void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked; // fasten cursur on center
     }
 }
 
