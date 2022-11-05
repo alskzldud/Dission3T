@@ -32,12 +32,13 @@ public class RayCenter : MonoBehaviour
             {
                 if (hit.collider.tag == "서랍")
                 {
-                    if (hit.collider.gameObject.transform.position.z <= 11)
+                    Debug.Log("서랍을 클릭함");
+                    if (hit.collider.gameObject.transform.position.z > 0.01 && hit.collider.gameObject.transform.position.z <= 0.14)
                     {
                         hit.collider.gameObject.transform.Translate(0, 0, 0.7f);
                         Debug.Log(hit.collider.gameObject.transform.position.z);
                     }
-                    else
+                    else if(hit.collider.gameObject.transform.position.z > 0.14 && hit.collider.gameObject.transform.position.z < 0.2)
                     {
                         hit.collider.gameObject.transform.Translate(0, 0, -0.7f);
                     }
@@ -53,21 +54,21 @@ public class RayCenter : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit)) // Ray bumped with object
             {
-                Debug.Log("충돌 중");
+                Debug.Log("충돌 중"); 
 
                 if (hit.collider.tag == "온도조절기1") // is Right thermometer?
                 {
                     Debug.Log("오른쪽 온도조절기와 충돌 중");
                     hand1 = GameObject.FindWithTag("hand1");
                     hand1.transform.Rotate(Vector3.forward * 30 * Time.deltaTime);
-                    hit.collider.gameObject.transform.Rotate(Vector3.forward * 50 * Time.deltaTime);
+                    hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
                 }
                 else if (hit.collider.tag == "온도조절기2") // is Left thermometer?
                 {
                     Debug.Log("왼쪽 온도조절기와 충돌 중");
                     hand2 = GameObject.FindWithTag("hand2");
                     hand2.transform.Rotate(Vector3.forward * 30 * Time.deltaTime);
-                    hit.collider.gameObject.transform.Rotate(Vector3.forward * 50 * Time.deltaTime);
+                    hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
                 }
             }
             else
