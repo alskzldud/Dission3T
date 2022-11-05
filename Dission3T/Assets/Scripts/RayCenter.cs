@@ -10,7 +10,9 @@ public class RayCenter : MonoBehaviour
 
     GameObject hand1;
     GameObject hand2;
-    
+
+    Vector3 target = new Vector3(8, 1.5f, 0);
+
     void Start()
     {
         center = GameObject.Find("Center");
@@ -33,9 +35,9 @@ public class RayCenter : MonoBehaviour
                 if (hit.collider.tag == "서랍")
                 {
                     Debug.Log("서랍을 클릭함");
-                    if (hit.collider.gameObject.transform.position.z > 0.01 && hit.collider.gameObject.transform.position.z <= 0.14)
+                    if (hit.collider.gameObject.transform.position.z > 0.01)
                     {
-                        hit.collider.gameObject.transform.Translate(0, 0, 0.7f);
+                        hit.collider.gameObject.transform.position = Vector3.Lerp(transform.position, target, 0.05f);
                         Debug.Log(hit.collider.gameObject.transform.position.z);
                     }
                     else if(hit.collider.gameObject.transform.position.z > 0.14 && hit.collider.gameObject.transform.position.z < 0.2)
