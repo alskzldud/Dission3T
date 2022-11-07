@@ -11,7 +11,8 @@ public class RayCenter : MonoBehaviour
     GameObject hand1;
     GameObject hand2;
 
-    Vector3 target = new Vector3(8, 1.5f, 0);
+    Vector3 drawertarget1 = new Vector3(1.930465f, 1.49123f, 12.71f);
+    Vector3 drawertarget2 = new Vector3(1.930465f, 0.8712302f, 12.752f);
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class RayCenter : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Input.GetMouseButtonDown(0)) // searching with click
+        if (Input.GetMouseButton(0)) // searching with click
         {
             center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
 
@@ -35,15 +36,20 @@ public class RayCenter : MonoBehaviour
                 if (hit.collider.tag == "서랍")
                 {
                     Debug.Log("서랍을 클릭함");
-                    if (hit.collider.gameObject.transform.position.z > 0.01)
+                    if (hit.collider.gameObject.transform.localPosition.z > 0 && hit.collider.gameObject.transform.localPosition.y > 0 ) // higher drawer open
                     {
-                        hit.collider.gameObject.transform.position = Vector3.Lerp(transform.position, target, 0.05f);
-                        Debug.Log(hit.collider.gameObject.transform.position.z);
+                        Vector3 velo = Vector3.zero;
+                        hit.collider.gameObject.transform.position = Vector3.SmoothDamp(hit.collider.gameObject.transform.position, drawertarget1, ref velo, 0.03f);
+                        
                     }
-                    else if(hit.collider.gameObject.transform.position.z > 0.14 && hit.collider.gameObject.transform.position.z < 0.2)
+                    
+                    else if (hit.collider.gameObject.transform.localPosition.y < 0) // lower drawer open    
                     {
-                        hit.collider.gameObject.transform.Translate(0, 0, -0.7f);
+                        Vector3 velo = Vector3.zero;
+                        hit.collider.gameObject.transform.position = Vector3.SmoothDamp(hit.collider.gameObject.transform.position, drawertarget2, ref velo, 0.03f);
                     }
+
+
                 }
             }
         } 
@@ -83,6 +89,11 @@ public class RayCenter : MonoBehaviour
     public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked; // fasten cursur on center
+    }
+
+    void drawer()
+    {
+
     }
 }
 

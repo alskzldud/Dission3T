@@ -59,9 +59,10 @@
     <Compile Include="Assets\Scripts\PlayerRotate.cs" />
     <Compile Include="Assets\Scripts\CamRotate.cs" />
     <Compile Include="Assets\Scripts\RayCenter.cs" />
+    <Compile Include="Assets\Scripts\handscript.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\TextUI.cs" />
-    <Compile Include="Assets\Scripts\handscript.cs" />
+    <Compile Include="Assets\Scripts\TestScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
