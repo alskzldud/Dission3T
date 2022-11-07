@@ -11,8 +11,11 @@ public class RayCenter : MonoBehaviour
     GameObject hand1;
     GameObject hand2;
 
-    Vector3 drawertarget1 = new Vector3(1.930465f, 1.49123f, 12.71f);
+    Vector3 drawertarget1 = new Vector3(5.312063f, 0.9918178f, 42.52337f);
     Vector3 drawertarget2 = new Vector3(1.930465f, 0.8712302f, 12.752f);
+
+
+    bool cDown;
 
     void Start()
     {
@@ -27,37 +30,46 @@ public class RayCenter : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Input.GetMouseButton(0)) // searching with click
+        if (Input.GetMouseButtonDown(0)) // searching with click
         {
             center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
 
-            if (Physics.Raycast(ray, out hit, 100.0f))
-            {
-                if (hit.collider.tag == "서랍")
-                {
-                    Debug.Log("서랍을 클릭함");
-                    if (hit.collider.gameObject.transform.localPosition.z > 0 && hit.collider.gameObject.transform.localPosition.y > 0 ) // higher drawer open
-                    {
-                        Vector3 velo = Vector3.zero;
-                        hit.collider.gameObject.transform.position = Vector3.SmoothDamp(hit.collider.gameObject.transform.position, drawertarget1, ref velo, 0.03f);
-                        
-                    }
-                    
-                    else if (hit.collider.gameObject.transform.localPosition.y < 0) // lower drawer open    
-                    {
-                        Vector3 velo = Vector3.zero;
-                        hit.collider.gameObject.transform.position = Vector3.SmoothDamp(hit.collider.gameObject.transform.position, drawertarget2, ref velo, 0.03f);
-                    }
-
-
-                }
-            }
+            
+            cDown = true;
+            StartCoroutine(WaitForIt());
         } 
         else
         {
             center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }
 
+        if (Physics.Raycast(ray, out hit, 100.0f) && cDown)
+        {
+            if (hit.collider.tag == "서랍")
+            {
+                Debug.Log("서랍을 클릭함");
+                if (hit.collider.gameObject.transform.localPosition.z > 0.9f) // higher drawer open
+                {
+                    Debug.Log("오른쪽 서랍을 클릭함");
+
+                    hit.collider.gameObject.transform.position = Vector3.Lerp(hit.collider.gameObject.transform.position, drawertarget1, 0.05f);
+                    //cDown = false;
+                    
+                }
+            }
+
+
+            else if (hit.collider.gameObject.transform.localPosition.y < 0) // lower drawer open    
+            {
+                Debug.Log("왼쪽 서랍을 클릭함");
+                Vector3 velo = Vector3.zero;
+                hit.collider.gameObject.transform.position = Vector3.SmoothDamp(hit.collider.gameObject.transform.position, drawertarget2, ref velo, 0.03f);
+                cDown = false;
+            }
+
+        }
+            
+        
         if (Input.GetButton("Interaction")) // 상호작용
         {
             if (Physics.Raycast(ray, out hit)) // Ray bumped with object
@@ -91,10 +103,12 @@ public class RayCenter : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // fasten cursur on center
     }
 
-    void drawer()
+    IEnumerator WaitForIt()
     {
-
+        yield return new WaitForSeconds(0.3f);
+        cDown = false;
     }
+
 }
 
 
