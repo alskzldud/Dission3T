@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class RayCenter : MonoBehaviour
 {
@@ -12,10 +9,12 @@ public class RayCenter : MonoBehaviour
     GameObject hand2;
 
     Vector3 drawertarget1 = new Vector3(5.312063f, 0.9918178f, 42.52337f);
-    Vector3 drawertarget2 = new Vector3(1.930465f, 0.8712302f, 12.752f);
+    Vector3 drawertarget2 = new Vector3(5.312063f, 0.9918178f, 42.10291f);
 
 
-    bool cDown;
+    bool open = false;
+    bool ClickDelay = true;
+    int First = 0;
 
     void Start()
     {
@@ -30,51 +29,64 @@ public class RayCenter : MonoBehaviour
 
         RaycastHit hit;
 
+
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
-            center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+                center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+                if (hit.collider.tag == "서랍")
+                {
+                    open = !open;
 
-            
-            cDown = true;
-            StartCoroutine(WaitForIt());
-        } 
+                    if (First > 0)
+                    {
+                        ClickDelay = !ClickDelay;
+                    }
+
+                    First++;
+                    StartCoroutine(WaitForIt());
+
+                }
+
+
+            }
+        }
         else
         {
             center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }
 
-        if (Physics.Raycast(ray, out hit, 100.0f) && cDown)
+        if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            if (hit.collider.tag == "서랍")
+            if (hit.collider.tag == "서랍" && open)
             {
-                Debug.Log("서랍을 클릭함");
-                if (hit.collider.gameObject.transform.localPosition.z > 0.9f) // higher drawer open
-                {
-                    Debug.Log("오른쪽 서랍을 클릭함");
 
-                    hit.collider.gameObject.transform.position = Vector3.Lerp(hit.collider.gameObject.transform.position, drawertarget1, 0.05f);
-                    //cDown = false;
-                    
-                }
+                Debug.Log("서랍을 클릭함");
+
+                hit.collider.GetComponent<TestScript>().DrawerMove();
+
+
+
+
             }
 
 
-            else if (hit.collider.gameObject.transform.localPosition.y < 0) // lower drawer open    
+            else if (hit.collider.tag == "서랍" && !open && !ClickDelay)
             {
-                Debug.Log("왼쪽 서랍을 클릭함");
-                Vector3 velo = Vector3.zero;
-                hit.collider.gameObject.transform.position = Vector3.SmoothDamp(hit.collider.gameObject.transform.position, drawertarget2, ref velo, 0.03f);
-                cDown = false;
+
+                hit.collider.gameObject.transform.position = Vector3.Lerp(hit.collider.gameObject.transform.position, drawertarget2, 0.05f);
+
             }
 
         }
-            
-        
+
+
         if (Input.GetButton("Interaction")) // 상호작용
         {
             if (Physics.Raycast(ray, out hit)) // Ray bumped with object
             {
-                Debug.Log("충돌 중"); 
+                Debug.Log("충돌 중");
 
                 if (hit.collider.tag == "온도조절기1") // is Right thermometer?
                 {
@@ -106,8 +118,11 @@ public class RayCenter : MonoBehaviour
     IEnumerator WaitForIt()
     {
         yield return new WaitForSeconds(0.3f);
-        cDown = false;
+        open = !open;
+
     }
+
+
 
 }
 
