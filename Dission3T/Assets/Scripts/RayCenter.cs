@@ -26,6 +26,7 @@ public class RayCenter : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
+<<<<<<< Updated upstream
             center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
 
             if (Physics.Raycast(ray, out hit, 100.0f))
@@ -44,10 +45,16 @@ public class RayCenter : MonoBehaviour
                     }
                 }
             }
+=======
+            center.GetComponent<Image>().color = new Color(255, 0, 0);
+            
+            cDown = true;
+            StartCoroutine(WaitForIt());
+>>>>>>> Stashed changes
         } 
         else
         {
-            center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            center.GetComponent<Image>().color = new Color(255, 255, 255);
         }
 
         if (Input.GetButton("Interaction")) // 상호작용
