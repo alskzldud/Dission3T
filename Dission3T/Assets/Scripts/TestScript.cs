@@ -24,23 +24,23 @@ public class TestScript : MonoBehaviour
 
     public void DrawerMove()
     {
-        if (gameObject.transform.localPosition.z > 0.9f && !isOpen)
+        if (!isOpen)
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, drawertarget1, 0.05f);
-            new WaitForSeconds(0.1f);
+            //new WaitForSeconds(0.3f);
             isOpen = !isOpen;
         }
         else
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(5.312063f, 0.9918178f, 42.08744f), 0.05f);
-            new WaitForSeconds(0.3f);
+            //new WaitForSeconds(0.3f);
             isOpen =!isOpen;
         }
-
+        
 
     }
 
-    IEnumerator StartMove()
+    public IEnumerator StartMove()
     {
         
         if (gameObject.transform.localPosition.z > 0.9f && gameObject.transform.localPosition.z < 1.13286)

@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class RayCenter : MonoBehaviour
 {
@@ -28,13 +30,13 @@ public class RayCenter : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
 
         RaycastHit hit;
-
+        Debug.Log("open");
 
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
-                center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+                //center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
                 if (hit.collider.tag == "¼­¶ø")
                 {
                     open = !open;
@@ -47,6 +49,8 @@ public class RayCenter : MonoBehaviour
                     First++;
                     StartCoroutine(WaitForIt());
 
+                   // StartCoroutine(hit.collider.GetComponent<TestScript>().StartMove());
+                    
                 }
 
 
@@ -54,7 +58,7 @@ public class RayCenter : MonoBehaviour
         }
         else
         {
-            center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            //center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }
 
         if (Physics.Raycast(ray, out hit, 100.0f))
@@ -122,7 +126,7 @@ public class RayCenter : MonoBehaviour
 
     }
 
-
+    
 
 }
 
