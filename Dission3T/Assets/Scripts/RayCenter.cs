@@ -10,7 +10,18 @@ public class RayCenter : MonoBehaviour
 
     GameObject hand1;
     GameObject hand2;
+<<<<<<< Updated upstream
     
+=======
+
+    Vector3 drawertarget1 = new Vector3(5.312063f, 0.9918178f, 42.52337f);
+    Vector3 drawertarget2 = new Vector3(5.312063f, 0.9918178f, 42.10291f);
+
+    bool open = false;
+    bool ClickDelay = true;
+    int First = 0;
+
+>>>>>>> Stashed changes
     void Start()
     {
         center = GameObject.Find("Center");
@@ -42,12 +53,38 @@ public class RayCenter : MonoBehaviour
                     {
                         hit.collider.gameObject.transform.Translate(0, 0, -0.7f);
                     }
+<<<<<<< Updated upstream
+=======
+
+                    First++;
+                    StartCoroutine(WaitForIt());
+
+                   // StartCoroutine(hit.collider.GetComponent<TestScript>().StartMove());
+>>>>>>> Stashed changes
                 }
             }
         } 
         else
         {
+<<<<<<< Updated upstream
             center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+=======
+            //center.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+
+        if (Physics.Raycast(ray, out hit, 100.0f))
+        {
+            if (hit.collider.tag == "서랍" && open)
+            {
+                Debug.Log("서랍을 클릭함");
+
+                hit.collider.GetComponent<TestScript>().DrawerMove();
+            }
+            else if (hit.collider.tag == "서랍" && !open && !ClickDelay)
+            {
+                hit.collider.gameObject.transform.position = Vector3.Lerp(hit.collider.gameObject.transform.position, drawertarget2, 0.05f);
+            }
+>>>>>>> Stashed changes
         }
 
         if (Input.GetButton("Interaction")) // 상호작용
@@ -80,8 +117,17 @@ public class RayCenter : MonoBehaviour
 
     public void LockCursor()
     {
-        Cursor.lockState = CursorLockMode.Locked; // fasten cursur on center
+        Cursor.lockState = CursorLockMode.Locked; // fasten cursor on center
     }
+<<<<<<< Updated upstream
+=======
+
+    IEnumerator WaitForIt()
+    {
+        yield return new WaitForSeconds(0.3f);
+        open = !open;
+    }
+>>>>>>> Stashed changes
 }
 
 
