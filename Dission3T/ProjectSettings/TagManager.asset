@@ -12,13 +12,8 @@ TagManager:
   - "\uC628\uB3C4\uC870\uC808\uAE302"
   - Rhandcollider
   - Lhandcollider
-<<<<<<< Updated upstream
-=======
   - RoomDoor
   - DrinkR
-  - Mag
-  - zoomTarget
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
