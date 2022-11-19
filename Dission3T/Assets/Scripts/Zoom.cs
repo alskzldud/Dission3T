@@ -13,8 +13,6 @@ public class Zoom : MonoBehaviour
 
     public Camera zoomC;
 
-    bool zoom = false;
-
     Vector3 originP;
     Vector3 originR;
 
