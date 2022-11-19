@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RayCenter : MonoBehaviour
 {
-    private Vector3 ScreenCenter;
+    public Vector3 ScreenCenter;
     private GameObject center;
 
     GameObject hand1;
@@ -30,7 +30,7 @@ public class RayCenter : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
 
         RaycastHit hit;
-        Debug.Log("open");
+        
 
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
@@ -53,8 +53,12 @@ public class RayCenter : MonoBehaviour
                     
                 }
 
-
+                else if(hit.collider.tag == "Rock")
+                {
+                    hit.collider.GetComponent<RockScript>().RockOpen();
+                }
             }
+            
         }
         else
         {

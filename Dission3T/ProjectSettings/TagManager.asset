@@ -4,16 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - "\uC11C\uB78D"
-  - Center
   - hand1
+  - "\uC11C\uB78D"
   - hand2
   - "\uC628\uB3C4\uC870\uC808\uAE301"
+  - Center
   - "\uC628\uB3C4\uC870\uC808\uAE302"
-  - Rhandcollider
-  - Lhandcollider
-  - RoomDoor
   - DrinkR
+  - RoomDoor
+  - Lhandcollider
+  - Rhandcollider
+  - Rock
+  - RockUI
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
+  - 
   - 
   - 
   - 
