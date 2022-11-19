@@ -16,6 +16,7 @@ TagManager:
   - DrinkR
   - Mag
   - zoomTarget
+  - Snack
   layers:
   - Default
   - TransparentFX
