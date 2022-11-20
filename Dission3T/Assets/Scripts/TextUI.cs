@@ -25,8 +25,8 @@ public class TextUI : MonoBehaviour
         {
             //Text UI 활성화
             Panel1.SetActive(true);
-            //오디오 재생
-            tvsound.Play();
+            //오디오 볼륨 크게
+            tvsound.volume=1.0f;
         }
         //플레이어가 음료수냉장고와 충돌하면
         if (col.gameObject.tag == "DrinkR")
@@ -49,8 +49,8 @@ public class TextUI : MonoBehaviour
         {
             //Text UI 2초 후에 비활성화시키는 함수
             Panel1.SetActive(false);
-            //오디오 종료
-            tvsound.Stop();
+            //오디오 음소거
+            tvsound.volume = 0.0f;
         }
         //플레이어가 음료수냉장고와 충돌하면
         if (col.gameObject.tag == "DrinkR")
