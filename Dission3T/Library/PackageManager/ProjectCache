@@ -5,7 +5,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
       ticks: 638003888365427261
+=======
+      ticks: 638044683247055797
+>>>>>>> Stashed changes
     m_Hash: 1057529631
   m_LockFileStatus:
     m_FilePath: C:/Users/user/Documents/GitHub/Dission3T/Dission3T/Packages/packages-lock.json
@@ -13,7 +17,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
       ticks: 638003888365427261
+=======
+      ticks: 638044683247065765
+>>>>>>> Stashed changes
     m_Hash: 1165375285
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

@@ -58,14 +58,22 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerRotate.cs" />
     <Compile Include="Assets\Scripts\CamRotate.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\RockScript.cs" />
+=======
+>>>>>>> Stashed changes
     <Compile Include="Assets\Scripts\RayCenter.cs" />
     <Compile Include="Assets\Scripts\handscript.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\TextUI.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\RockDecodingScript.cs" />
     <Compile Include="Assets\test.cs" />
+=======
+    <Compile Include="Assets\Scripts\Unlock.cs" />
+    <Compile Include="Assets\Scripts\Zoom.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
