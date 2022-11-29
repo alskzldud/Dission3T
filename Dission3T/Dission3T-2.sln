@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI", "UnityEngine.UI.csproj", "{DD3F8606-FFBD-88BB-E9AC-E9B7DB8B255F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{E3E8526D-13BF-5B99-F562-0057AD2DEDFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEditor.UI", "UnityEditor.UI.csproj", "{B4C11EBD-BD0C-A81B-4039-98FA080FA1EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD3F8606-FFBD-88BB-E9AC-E9B7DB8B255F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3F8606-FFBD-88BB-E9AC-E9B7DB8B255F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3F8606-FFBD-88BB-E9AC-E9B7DB8B255F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3F8606-FFBD-88BB-E9AC-E9B7DB8B255F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3E8526D-13BF-5B99-F562-0057AD2DEDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3E8526D-13BF-5B99-F562-0057AD2DEDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3E8526D-13BF-5B99-F562-0057AD2DEDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3E8526D-13BF-5B99-F562-0057AD2DEDFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4C11EBD-BD0C-A81B-4039-98FA080FA1EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C11EBD-BD0C-A81B-4039-98FA080FA1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C11EBD-BD0C-A81B-4039-98FA080FA1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C11EBD-BD0C-A81B-4039-98FA080FA1EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C3695D5-249D-4684-89E4-52FD944F5D4F}
+	EndGlobalSection
+EndGlobal

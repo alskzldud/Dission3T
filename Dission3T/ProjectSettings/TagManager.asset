@@ -16,6 +16,9 @@ TagManager:
   - Rhandcollider
   - Rock
   - RockUI
+  - zoomTarget
+  - Mag
+  - LockedDrawer
   layers:
   - Default
   - TransparentFX

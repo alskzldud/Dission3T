@@ -18,6 +18,8 @@ public class RayCenter : MonoBehaviour
     bool ClickDelay = true;
     int First = 0;
 
+    public bool ClearLock;
+
     void Start()
     {
         center = GameObject.Find("Center");
@@ -30,7 +32,8 @@ public class RayCenter : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
 
         RaycastHit hit;
-        
+
+        Debug.Log(ClearLock);   
 
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
@@ -49,13 +52,17 @@ public class RayCenter : MonoBehaviour
                     First++;
                     StartCoroutine(WaitForIt());
 
-                   // StartCoroutine(hit.collider.GetComponent<TestScript>().StartMove());
-                    
+                    // StartCoroutine(hit.collider.GetComponent<TestScript>().StartMove());
+
                 }
 
-                else if(hit.collider.tag == "Rock")
+                else if (hit.collider.tag == "Rock" && ClearLock == false)
                 {
                     hit.collider.GetComponent<RockScript>().RockOpen();
+                }
+                else if (hit.collider.tag == "LockedDrawer" && ClearLock == true)
+                {
+                    open = !open;
                 }
             }
             
@@ -85,6 +92,11 @@ public class RayCenter : MonoBehaviour
 
                 hit.collider.gameObject.transform.position = Vector3.Lerp(hit.collider.gameObject.transform.position, drawertarget2, 0.05f);
 
+            }
+
+            else if (hit.collider.tag == "LockedDrawer" && ClearLock && open && Input.GetMouseButtonDown(0))
+            {
+                hit.collider.GetComponent<TestScript>().DrawerMove();
             }
 
         }
@@ -128,6 +140,11 @@ public class RayCenter : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         open = !open;
 
+    }
+
+    public void OpenLock()
+    {
+        ClearLock = true;
     }
 
     

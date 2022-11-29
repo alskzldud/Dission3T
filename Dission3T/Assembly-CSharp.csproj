@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DF52436A-0C37-A668-59A4-D9085EB4FD7F}</ProjectGuid>
+    <ProjectGuid>{E3E8526D-13BF-5B99-F562-0057AD2DEDFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,22 +58,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerRotate.cs" />
     <Compile Include="Assets\Scripts\CamRotate.cs" />
-<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\RockScript.cs" />
-=======
->>>>>>> Stashed changes
+    <Compile Include="Assets\ScifiOfficeLite\Scripts\DemoFirstPersonController.cs" />
+    <Compile Include="Assets\Scripts\RockDecodingScript.cs" />
+    <Compile Include="Assets\Scripts\Unlock.cs" />
     <Compile Include="Assets\Scripts\RayCenter.cs" />
     <Compile Include="Assets\Scripts\handscript.cs" />
+    <Compile Include="Assets\ScifiOfficeLite\Scripts\DemoDoor.cs" />
+    <Compile Include="Assets\Scripts\test.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Zoom.cs" />
     <Compile Include="Assets\Scripts\TextUI.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
-<<<<<<< Updated upstream
-    <Compile Include="Assets\Scripts\RockDecodingScript.cs" />
-    <Compile Include="Assets\test.cs" />
-=======
-    <Compile Include="Assets\Scripts\Unlock.cs" />
-    <Compile Include="Assets\Scripts\Zoom.cs" />
->>>>>>> Stashed changes
+    <Compile Include="Assets\ScifiOfficeLite\Scripts\CameraMovingScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -670,11 +667,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{B4C11EBD-BD0C-A81B-4039-98FA080FA1EB}</Project>
+      <Project>{623BC0FA-011F-D3D1-F673-FE57953B2CC1}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{DD3F8606-FFBD-88BB-E9AC-E9B7DB8B255F}</Project>
+      <Project>{EB1DEDAB-2DF6-9DC5-B12B-89150CE2EBD2}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>
