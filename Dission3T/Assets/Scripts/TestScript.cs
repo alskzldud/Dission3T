@@ -6,7 +6,7 @@ public class TestScript : MonoBehaviour
 {
     Vector3 target = new Vector3(1.930465f, 1.49123f, 12.71f);
 
-    Vector3 drawertarget1 = new Vector3(5.312063f, 0.9918178f, 43.02337f);
+    Vector3 drawertarget1 = new Vector3(5.312063f, 0.9918178f, 42.503f);
     Vector3 drawertarget2 = new Vector3(1.930465f, 0.8712302f, 12.752f);
 
     bool isOpen = false;
@@ -24,20 +24,33 @@ public class TestScript : MonoBehaviour
 
     public void DrawerMove()
     {
-        if (!isOpen)
-        {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, drawertarget1, 0.05f);
-            //new WaitForSeconds(0.3f);
-            isOpen = !isOpen;
-        }
-        else
-        {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(5.312063f, 0.9918178f, 42.08744f), 0.05f);
-            //new WaitForSeconds(0.3f);
-            isOpen =!isOpen;
-        }
+        //if (!isOpen)
+        //{
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, drawertarget1, 0.05f); ;
+            new WaitForSeconds(1f);
+            //isOpen = !isOpen;
+        //}
+        //else
+        //{
+         /*   gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(5.312063f, 0.9918178f, 42.08744f), 0.05f);
+            new WaitForSeconds(1f);
+            //isOpen =!isOpen;
+        }*/
         
 
+    }
+
+    public void DrawerMove(GameObject a)
+    {
+        Debug.Log("실행은 되고있음");
+        
+        a.transform.position = Vector3.Lerp(a.transform.position, drawertarget1, 0.05f);
+        //Invoke("ChangeBool", 1f);
+    
+        //a.transform.position = Vector3.Lerp(a.transform.position, new Vector3(5.312063f, 0.9918178f, 42.08744f), 0.05f);
+            //new WaitForSeconds(0.3f);
+            //isOpen = !isOpen;
+        
     }
 
     public IEnumerator StartMove()
@@ -53,5 +66,10 @@ public class TestScript : MonoBehaviour
         }
         yield return new WaitForSeconds(0.001f);
 
+    }
+
+    void ChangeBool()
+    {
+        isOpen = !isOpen;
     }
 }

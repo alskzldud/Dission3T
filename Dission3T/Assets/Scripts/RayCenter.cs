@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RayCenter : MonoBehaviour
 {
-    private Vector3 ScreenCenter;
+    public Vector3 ScreenCenter;
     private GameObject center;
 
     GameObject hand1;
@@ -18,6 +18,8 @@ public class RayCenter : MonoBehaviour
     bool ClickDelay = true;
     int First = 0;
 
+    public bool ClearLock;
+
     void Start()
     {
         center = GameObject.Find("Center");
@@ -30,7 +32,8 @@ public class RayCenter : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
 
         RaycastHit hit;
-        Debug.Log("open");
+
+        
 
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
@@ -39,6 +42,7 @@ public class RayCenter : MonoBehaviour
                 //center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
                 if (hit.collider.tag == "서랍")
                 {
+                    Debug.Log("서랍이 레이와 부딪힘!");
                     open = !open;
 
                     if (First > 0)
@@ -49,12 +53,21 @@ public class RayCenter : MonoBehaviour
                     First++;
                     StartCoroutine(WaitForIt());
 
-                   // StartCoroutine(hit.collider.GetComponent<TestScript>().StartMove());
-                    
+                    // StartCoroutine(hit.collider.GetComponent<TestScript>().StartMove());
+
                 }
 
-
+                else if (hit.collider.tag == "Rock" && ClearLock == false)
+                {
+                    hit.collider.GetComponent<RockScript>().RockOpen();
+                }
+                else if (hit.collider.tag == "LockedDrawer" && ClearLock == true)
+                {
+                    open = !open;
+                    
+                }
             }
+            
         }
         else
         {
@@ -80,6 +93,12 @@ public class RayCenter : MonoBehaviour
             {
 
                 hit.collider.gameObject.transform.position = Vector3.Lerp(hit.collider.gameObject.transform.position, drawertarget2, 0.05f);
+
+            }
+
+            else if (hit.collider.tag == "LockedDrawer" && ClearLock && open)
+            {
+                hit.collider.GetComponent<TestScript>().DrawerMove(hit.collider.gameObject);
 
             }
 
@@ -121,9 +140,14 @@ public class RayCenter : MonoBehaviour
 
     IEnumerator WaitForIt()
     {
-        yield return new WaitForSeconds(0.3f);
-        open = !open;
+        yield return new WaitForSeconds(1f);
+        
 
+    }
+
+    public void OpenLock()
+    {
+        ClearLock = true;
     }
 
     

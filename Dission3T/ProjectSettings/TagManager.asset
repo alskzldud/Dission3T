@@ -17,6 +17,9 @@ TagManager:
   - Mag
   - zoomTarget
   - Snack
+  - Rock
+  - RockUI
+  - LockedDrawer
   layers:
   - Default
   - TransparentFX
