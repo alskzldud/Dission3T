@@ -20,6 +20,9 @@ TagManager:
   - Rock
   - RockUI
   - LockedDrawer
+  - RightClockDoor
+  - LeftClockDoor
+  - bird
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,15 @@ public class handscript : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public bool RhandTrue;
-    public bool LhandTrue;
+    static bool LhandTrue;
+    static bool RhandTrue;
+
+    bool a = true;
+
+    //public GameObject[] Light = new GameObject[2];
+    public Light[] Light = new Light[2];
+
+    public GameObject[] Clock = new GameObject[3];
 
     void Start()
     {
@@ -18,7 +25,10 @@ public class handscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(RhandTrue && LhandTrue && a)
+        {
+            Invoke("HandTrue", 7f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,5 +58,32 @@ public class handscript : MonoBehaviour
             LhandTrue = false;
             Debug.Log(LhandTrue);
         }
+    }
+
+    void HandTrue()
+    {
+        
+        if(RhandTrue && LhandTrue && a)
+        {
+            for(int i =0; i < 3; i++)
+            {
+                Clock[i].GetComponent<ClockScript>().Rotation();
+            }
+            for(int i=0; i < 2; i++)
+            {
+                for (double j = 0; j < 19 ; j ++)
+                {
+                    Light[i].range += 0.1f;
+                    
+                }
+                
+            }
+            a = false;
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
     }
 }

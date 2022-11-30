@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerRotate.cs" />
+    <Compile Include="Assets\Scripts\DrawerScript.cs" />
     <Compile Include="Assets\Scripts\CamRotate.cs" />
     <Compile Include="Assets\Scripts\RockScript.cs" />
     <Compile Include="Assets\Scripts\RockDecodingScript.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Assets\Scripts\Zoom.cs" />
     <Compile Include="Assets\Scripts\TextUI.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
-    <Compile Include="Assets\Scripts\DrawerScript.cs" />
+    <Compile Include="Assets\Scripts\ClockScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
