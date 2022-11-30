@@ -23,6 +23,7 @@ TagManager:
   - RightClockDoor
   - LeftClockDoor
   - bird
+  - SuperEnter
   layers:
   - Default
   - TransparentFX

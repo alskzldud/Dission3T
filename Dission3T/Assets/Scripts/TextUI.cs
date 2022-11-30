@@ -13,6 +13,11 @@ public class TextUI : MonoBehaviour
     public GameObject Panel2;
     //널브러진 과자
     public GameObject Panel3;
+    //슈퍼 안내 UI
+    public GameObject Panel4;
+    public GameObject superenter1;
+    public GameObject superenter2;
+    public GameObject Enter;
 
     void Start()
     {
@@ -40,6 +45,38 @@ public class TextUI : MonoBehaviour
             //Text UI 활성화
             Panel3.SetActive(true);
         }
+        //슈퍼 안내 UI
+        if (col.gameObject.tag=="SuperEnter")
+        {
+            //플레이어 이동 속도 0
+            GameObject.Find("Player").GetComponent<PlayerMove>().moveSpeed = 0;
+            //안내 UI 활성화
+            Panel4.SetActive(true);
+            superenter1.SetActive(true);
+
+            Invoke("SuperEnter1OFF", 2f);
+            Invoke("SuperEnter2ON", 2.2f);
+
+            //판넬 제거
+            Destroy(Panel4, 4f);
+            Destroy(Enter, 4f);
+            //플레이어 이동 속도 원상복구
+            Invoke("MoveSpeed", 4.2f);
+        }
+    }
+
+    void SuperEnter1OFF()
+    {
+        superenter1.SetActive(false);
+    }
+    void SuperEnter2ON()
+    {
+        superenter2.SetActive(true);
+    }
+    void MoveSpeed()
+    {
+        //플레이어 이동 속도 0
+        GameObject.Find("Player").GetComponent<PlayerMove>().moveSpeed = 5;
     }
 
     void OnTriggerExit(Collider col)
