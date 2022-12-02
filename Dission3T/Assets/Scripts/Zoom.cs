@@ -28,7 +28,7 @@ public class Zoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(ScreenCenter); // 메안 카메라 중앙에 레이 쏘기
+        Ray ray = Camera.main.ScreenPointToRay(ScreenCenter); // 메인 카메라 중앙에 레이 쏘기
 
         RaycastHit hit;
 
@@ -51,7 +51,6 @@ public class Zoom : MonoBehaviour
             else
             {
                 mag.GetComponent<Image>().color = new Color(0, 0, 0, 0); // 돋보기 안 보이게
-                point.GetComponent<Image>().color = new Color(255, 255, 255, 255); // point 보이게
             }
         }
 
@@ -71,6 +70,8 @@ public class Zoom : MonoBehaviour
 
                 zoomTarget.transform.position = originP; // 줌타겟을 원래 위치로
                 zoomTarget.transform.rotation = Quaternion.Euler(originR); // 줌타겟을 원래 회전값으로
+
+                point.GetComponent<Image>().color = new Color(255, 255, 255, 255); // point 보이게
             }
         }
     }
@@ -80,5 +81,7 @@ public class Zoom : MonoBehaviour
         go.transform.position = new Vector3(0, 50f, 0); // 줌타겟 공중으로 띄우기
 
         zoomC.gameObject.SetActive(true); // 줌 카메라 활성화
+
+        point.GetComponent<Image>().color = new Color(0, 0, 0, 0); // point 안 보이게
     }
 }
