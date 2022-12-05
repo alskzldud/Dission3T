@@ -53,11 +53,11 @@ public class RockScript : MonoBehaviour
 
         RayCenter rCenter = PObject.GetComponent<RayCenter>();
         PlayerMove pMove = PObject.GetComponent<PlayerMove>();
-        PlayerRotate pRot = PObject.GetComponent<PlayerRotate>();
+        
         CamRotate cRot = Camera.main.GetComponent<CamRotate>();
         rCenter.enabled = false;
         pMove.enabled = false;
-        pRot.enabled = false;
+        
         cRot.enabled = false;
         
         Transform mesh = RockUI.transform.GetChild(0);

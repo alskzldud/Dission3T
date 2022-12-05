@@ -107,7 +107,7 @@ public class RayCenter : MonoBehaviour
 
         if (Input.GetButton("Interaction")) // 상호작용
         {
-            if (Physics.Raycast(ray, out hit)) // Ray bumped with object
+            if (Physics.Raycast(ray, out hit, 300f)) // Ray bumped with object
             {
                 Debug.Log("충돌 중");
 
@@ -118,7 +118,7 @@ public class RayCenter : MonoBehaviour
                     hand1.transform.Rotate(Vector3.forward * 30 * Time.deltaTime);
                     hit.collider.gameObject.transform.Rotate(Vector3.up * 50 * Time.deltaTime);
                 }
-                else if (hit.collider.tag == "온도조절기2") // is Left thermometer?
+                if (hit.collider.tag == "온도조절기2") // is Left thermometer?
                 {
                     Debug.Log("왼쪽 온도조절기와 충돌 중");
                     hand2 = GameObject.FindWithTag("hand2");

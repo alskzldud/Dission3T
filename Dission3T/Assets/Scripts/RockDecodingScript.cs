@@ -26,13 +26,13 @@ public class RockDecodingScript : MonoBehaviour
 
 
             PlayerMove pMove = player.GetComponent<PlayerMove>();
-            PlayerRotate pRot = player.GetComponent<PlayerRotate>();
+            
             CamRotate cRot = Camera.main.GetComponent<CamRotate>();
             RayCenter r = player.GetComponent<RayCenter>();
             r.OpenLock();
 
             pMove.enabled = true;
-            pRot.enabled = true;
+            
             cRot.enabled = true;
             r.enabled = true;
 

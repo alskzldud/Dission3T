@@ -7,10 +7,10 @@ public class ClockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Rotation();
+        Rotation();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame  
     void Update()
     {
         //Rotation();
@@ -20,11 +20,11 @@ public class ClockScript : MonoBehaviour
     {
         if(gameObject.transform.tag == "RightClockDoor")
         {
-            gameObject.transform.Rotate(new Vector3(0, -150f, 0));
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 10, 0));
         }
         if(gameObject.transform.tag == "LeftClockDoor")
         {
-            gameObject.transform.Rotate(new Vector3(0, 140, 0));
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 170, 0));
         }
         if(gameObject.transform.tag == "bird")
         {

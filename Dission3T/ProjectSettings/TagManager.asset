@@ -9,7 +9,6 @@ TagManager:
   - hand1
   - hand2
   - "\uC628\uB3C4\uC870\uC808\uAE301"
-  - "\uC628\uB3C4\uC870\uC808\uAE302"
   - Rhandcollider
   - Lhandcollider
   - RoomDoor
@@ -23,6 +22,7 @@ TagManager:
   - RightClockDoor
   - LeftClockDoor
   - bird
+  - "\uC628\uB3C4\uC870\uC808\uAE302"
   layers:
   - Default
   - TransparentFX
