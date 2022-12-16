@@ -72,7 +72,7 @@ public class handscript : MonoBehaviour
             }
             for(int i=0; i < 2; i++)
             {
-                for (double j = 0; j < 36 ; j ++)
+                for (double j = 0; j < 24 ; j ++)
                 {
                     Light[i].range += 0.1f;
                     

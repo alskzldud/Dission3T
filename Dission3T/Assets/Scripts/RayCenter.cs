@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RayCenter : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class RayCenter : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
-                //center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+                center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
                 if (hit.collider.tag == "서랍")
                 {
                     Debug.Log("서랍이 레이와 부딪힘!");
@@ -65,6 +66,16 @@ public class RayCenter : MonoBehaviour
                 {
                     open = !open;
                     
+                }
+                else if(hit.collider.tag == "cluePaper")
+                {
+                    Debug.Log(hit.collider.tag + "를 클릭함");
+                    
+
+                    hit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                    
+                    //StartCoroutine(WaitForIt());
+                    //hit.collider.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }
             
@@ -140,7 +151,7 @@ public class RayCenter : MonoBehaviour
 
     IEnumerator WaitForIt()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(10f);
         
 
     }

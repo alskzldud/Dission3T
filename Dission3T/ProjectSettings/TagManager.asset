@@ -23,6 +23,7 @@ TagManager:
   - LeftClockDoor
   - bird
   - "\uC628\uB3C4\uC870\uC808\uAE302"
+  - cluePaper
   layers:
   - Default
   - TransparentFX

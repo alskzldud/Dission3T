@@ -7,7 +7,7 @@ public class ClockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Rotation();
+        //Rotation();
     }
 
     // Update is called once per frame  
@@ -28,7 +28,7 @@ public class ClockScript : MonoBehaviour
         }
         if(gameObject.transform.tag == "bird")
         {
-            gameObject.transform.localPosition += new Vector3(0, 0, 0.2f);
+            gameObject.transform.localPosition += new Vector3(0, 0, 0.05f);
         }
     }
 }
