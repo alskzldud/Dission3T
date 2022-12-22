@@ -28,5 +28,7 @@ public class Note : MonoBehaviour
                 noteOpen.SetActive(true);
             }
         }
+
+        
     }
 }

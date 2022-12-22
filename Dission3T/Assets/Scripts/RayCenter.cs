@@ -13,6 +13,16 @@ public class RayCenter : MonoBehaviour
     Vector3 drawertarget1 = new Vector3(5.312063f, 0.9918178f, 42.52337f);
     Vector3 drawertarget2 = new Vector3(5.312063f, 0.9918178f, 42.10291f);
 
+    public GameObject Newspaper1;
+    public GameObject Newspaper2;
+    public GameObject Newspaper3;
+    //½Å¹® Á¶°¢ È¹µæ UI
+    public GameObject Newspaper;
+    public GameObject New;
+    //³ëÆ®¿¡ Ç¥½Ã
+    public GameObject news1;
+    public GameObject news2;
+    public GameObject news3;
 
     bool open = false;
     bool ClickDelay = true;
@@ -65,6 +75,35 @@ public class RayCenter : MonoBehaviour
                 {
                     open = !open;
                     
+                }
+                
+                else if (hit.collider.tag=="Newspaper1")
+                {
+                    Debug.Log("½Å¹®Á¶°¢ È¹µæ");
+                    Destroy(Newspaper1);
+                    Newspaper.SetActive(true);
+                    New.SetActive(true);
+                    Invoke("NewsOFF", 1.5f);
+                    news1.SetActive(true);
+
+                }
+                else if (hit.collider.tag == "Newspaper2")
+                {
+                    Debug.Log("½Å¹®Á¶°¢ È¹µæ");
+                    Destroy(Newspaper2);
+                    Newspaper.SetActive(true);
+                    New.SetActive(true);
+                    Invoke("NewsOFF", 1.5f);
+                    news2.SetActive(true);
+                }
+                else if (hit.collider.tag == "Newspaper3")
+                {
+                    Debug.Log("½Å¹®Á¶°¢ È¹µæ");
+                    Destroy(Newspaper3);
+                    Newspaper.SetActive(true);
+                    New.SetActive(true);
+                    Invoke("NewsOFF", 1.5f);
+                    news3.SetActive(true);
                 }
             }
             
@@ -150,8 +189,21 @@ public class RayCenter : MonoBehaviour
         ClearLock = true;
     }
 
-    
+    void NewsOFF()
+    {
+        Newspaper.SetActive(false);
+    }
 
+    void Note()
+    {
+        if (New==true)
+        {
+            if (Input.GetButtonUp("n"))
+            {
+                New.SetActive(false);
+            }
+        }
+    }
 }
 
 

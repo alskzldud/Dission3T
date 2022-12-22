@@ -26,6 +26,9 @@ TagManager:
   - SuperEnter
   - Door
   - letterondesk
+  - Newspaper1
+  - Newspaper2
+  - Newspaper3
   layers:
   - Default
   - TransparentFX
