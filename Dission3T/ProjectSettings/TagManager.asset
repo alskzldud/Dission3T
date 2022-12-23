@@ -29,6 +29,8 @@ TagManager:
   - Newspaper1
   - Newspaper2
   - Newspaper3
+  - 0214
+  - KEY1
   layers:
   - Default
   - TransparentFX

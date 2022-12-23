@@ -51,6 +51,7 @@ public class Zoom : MonoBehaviour
             else
             {
                 mag.GetComponent<Image>().color = new Color(0, 0, 0, 0); // 돋보기 안 보이게
+                point.GetComponent<Image>().color = new Color(255, 255, 255, 255); // point 보이게
             }
         }
 

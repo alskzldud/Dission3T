@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RayCenter : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class RayCenter : MonoBehaviour
     public GameObject news2;
     public GameObject news3;
 
+    public GameObject key1;
+
     bool open = false;
     bool ClickDelay = true;
     int First = 0;
@@ -38,6 +41,8 @@ public class RayCenter : MonoBehaviour
 
     void Update()
     {
+
+        LockCursor();
         Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
 
@@ -45,10 +50,13 @@ public class RayCenter : MonoBehaviour
 
         
 
+        
+
         if (Input.GetMouseButtonDown(0)) // searching with click
         {
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
+                Debug.Log(hit.collider.gameObject);
                 //center.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
                 if (hit.collider.tag == "¼­¶ø")
                 {
@@ -70,23 +78,44 @@ public class RayCenter : MonoBehaviour
                 else if (hit.collider.tag == "Rock" && ClearLock == false)
                 {
                     hit.collider.GetComponent<RockScript>().RockOpen();
+
+
                 }
                 else if (hit.collider.tag == "LockedDrawer" && ClearLock == true)
                 {
                     open = !open;
-                    
-                }
-                
-                else if (hit.collider.tag=="Newspaper1")
-                {
-                    Debug.Log("½Å¹®Á¶°¢ È¹µæ");
-                    Destroy(Newspaper1);
-                    Newspaper.SetActive(true);
-                    New.SetActive(true);
-                    Invoke("NewsOFF", 1.5f);
-                    news1.SetActive(true);
 
                 }
+
+                else if (hit.collider.tag == "0214")
+                {
+                    Debug.Log(hit.collider.gameObject);
+                    GameObject clue = hit.collider.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+                    Debug.Log(clue);
+
+                    clue.SetActive(true);
+                    StartCoroutine(clueup(clue));
+                    //clue.SetActive(false);
+
+                    
+                }
+
+                else if(hit.collider.tag == "KEY1")
+                {
+                    Destroy(hit.collider.gameObject);
+                    StartCoroutine(keyup());
+                }
+
+                else if (hit.collider.tag == "Newspaper1")
+                {
+                   Debug.Log("½Å¹®Á¶°¢ È¹µæ");
+                   Destroy(Newspaper1);
+                   Newspaper.SetActive(true);
+                   New.SetActive(true);
+                   Invoke("NewsOFF", 1.5f);
+                   news1.SetActive(true);
+
+            }
                 else if (hit.collider.tag == "Newspaper2")
                 {
                     Debug.Log("½Å¹®Á¶°¢ È¹µæ");
@@ -182,6 +211,20 @@ public class RayCenter : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
 
+    }
+
+    IEnumerator clueup(GameObject clue)
+    {
+        clue.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        clue.SetActive(false);
+    }
+
+    IEnumerator keyup()
+    {
+        key1.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        key1.SetActive(false);
     }
 
     public void OpenLock()

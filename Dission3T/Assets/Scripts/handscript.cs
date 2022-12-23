@@ -27,8 +27,10 @@ public class handscript : MonoBehaviour
     {
         if(RhandTrue && LhandTrue && a)
         {
-            Invoke("HandTrue", 7f);
+            Invoke("HandTrue", 3f);
+            a = false;
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,23 +65,22 @@ public class handscript : MonoBehaviour
     void HandTrue()
     {
         
-        if(RhandTrue && LhandTrue && a)
+        
+        for(int i =0; i < 3; i++)
         {
-            for(int i =0; i < 3; i++)
-            {
-                Clock[i].GetComponent<ClockScript>().Rotation();
-            }
-            for(int i=0; i < 2; i++)
-            {
-                for (double j = 0; j < 19 ; j ++)
-                {
-                    Light[i].range += 0.1f;
-                    
-                }
-                
-            }
-            a = false;
+            Clock[i].GetComponent<ClockScript>().Rotation();
         }
+        for (int i = 0; i < 2; i++)
+        {
+            for (double j = 0; j < 37; j++)
+            {
+                Light[i].range += 0.1f;
+
+            }
+
+        }
+            a = false;
+        
     }
 
     IEnumerator Wait()

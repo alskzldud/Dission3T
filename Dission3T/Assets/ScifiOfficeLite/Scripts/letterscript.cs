@@ -15,6 +15,8 @@ public class letterscript : MonoBehaviour
 
     Image letter;
 
+    public Button btn;
+
     Vector3 target = new Vector3(4.342f, 1.01f, 32f);
     Vector3 origin;
 
@@ -119,8 +121,15 @@ public class letterscript : MonoBehaviour
 
     IEnumerator LetterShow()
     {
-        
+
         Color c = letter.color;
+
+        Image img = btn.GetComponent<Image>();
+
+        Text txt = btn.transform.GetChild(0).GetComponent<Text>();
+
+        Color t = txt.color;
+        Color b = img.color;
         if (letter.color.a < 1)
         {
             for (int i = 0; i < 11; i++)
@@ -131,6 +140,18 @@ public class letterscript : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
 
             }
+
+            for (int i = 0; i < 11; i++)
+            {
+                float f = i / 10f;
+                b.a = f;
+                t.a = f;
+                img.color = b;
+                txt.color = t;
+                yield return new WaitForSeconds(0.1f);
+
+            }
+
         }
     }
 

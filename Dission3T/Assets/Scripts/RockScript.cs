@@ -39,6 +39,7 @@ public class RockScript : MonoBehaviour
             //pRot.enabled = true;
             cRot.enabled = true;
             UIing = false;
+            Cursor.lockState = CursorLockMode.Locked;
             
         }
 
@@ -47,7 +48,7 @@ public class RockScript : MonoBehaviour
     public void RockOpen()
     {
 
-        
+        Cursor.lockState = CursorLockMode.None;
         UIing = true;
         RockUI.transform.position = player.position + Camera.main.transform.forward * 0.9f;
 
